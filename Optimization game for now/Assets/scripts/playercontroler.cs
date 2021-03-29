@@ -15,15 +15,19 @@ public class playercontroler : MonoBehaviour
      public float sensitivity;
      public Text TextScore;
     public static int score = 0;
+    public GameObject gameStartPanel;
  
      // Use this for initialization
      void Start () {
          score = 0;
+
      }
      
      // Update is called once per frame
      void Update () {
-         CharacterController controller = GetComponent<CharacterController>();
+        ClosePopUp();
+        
+        CharacterController controller = GetComponent<CharacterController>();
          
         
 
@@ -61,6 +65,17 @@ public class playercontroler : MonoBehaviour
             {
                 SceneManager.LoadScene("Win");
             }
+        }
+
+    }
+
+    public void ClosePopUp()
+    {
+        //gameStartPanel.SetActive(false);
+
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            gameStartPanel.SetActive(false);
         }
 
     }
